@@ -14,8 +14,15 @@ spec:
       labels:
         app: nginx
     spec:
+      volumes:
+        - name: my-html-files
+          hostPath:
+            path: /usr/share/nginx/AFK
       containers:
         - name: nginx-container
-          image: alperanfk/test6:latest
+          image: alperanfk/test7:latest
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: my-html-files
+              mountPath: /usr/share/nginx/AFK
